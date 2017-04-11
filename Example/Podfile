@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'BlockDemo_Example' do
+  pod 'BlockDemo', :path => '../'
+
+  target 'BlockDemo_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase'
+  end
+end
