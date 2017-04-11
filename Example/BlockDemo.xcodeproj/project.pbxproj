@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		339E093C1E9C709900B0768F /* CellItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 339E093B1E9C709900B0768F /* CellItem.m */; };
 		339E093F1E9C816500B0768F /* ModalVCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 339E093E1E9C816500B0768F /* ModalVCViewController.m */; };
+		339E09421E9CA85800B0768F /* NetWorkRequestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 339E09411E9CA85800B0768F /* NetWorkRequestHelper.m */; };
 		48858F78AC1EC49484BE5B4D /* Pods_BlockDemo_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA344BA0D1166EBC839D6666 /* Pods_BlockDemo_Example.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -47,6 +48,9 @@
 		339E093B1E9C709900B0768F /* CellItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellItem.m; sourceTree = "<group>"; };
 		339E093D1E9C816500B0768F /* ModalVCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalVCViewController.h; sourceTree = "<group>"; };
 		339E093E1E9C816500B0768F /* ModalVCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalVCViewController.m; sourceTree = "<group>"; };
+		339E09401E9CA85800B0768F /* NetWorkRequestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkRequestHelper.h; sourceTree = "<group>"; };
+		339E09411E9CA85800B0768F /* NetWorkRequestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkRequestHelper.m; sourceTree = "<group>"; };
+		339E09431E9CAA1A00B0768F /* Singleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* BlockDemo_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlockDemo_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -156,6 +160,9 @@
 				6003F5A6195388D20070C39A /* QinViewController.m */,
 				339E093D1E9C816500B0768F /* ModalVCViewController.h */,
 				339E093E1E9C816500B0768F /* ModalVCViewController.m */,
+				339E09401E9CA85800B0768F /* NetWorkRequestHelper.h */,
+				339E09411E9CA85800B0768F /* NetWorkRequestHelper.m */,
+				339E09431E9CAA1A00B0768F /* Singleton.h */,
 				339E093A1E9C709900B0768F /* CellItem.h */,
 				339E093B1E9C709900B0768F /* CellItem.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
@@ -409,6 +416,7 @@
 				339E093C1E9C709900B0768F /* CellItem.m in Sources */,
 				6003F59E195388D20070C39A /* QinAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* QinViewController.m in Sources */,
+				339E09421E9CA85800B0768F /* NetWorkRequestHelper.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

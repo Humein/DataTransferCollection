@@ -147,6 +147,7 @@
     ModalAction.block = ^{
         NSLog(@"弹出控制器");
         [weakSelf presentViewController:modalVc animated:YES completion:nil];
+        
     };
     modalVc.valueBlcok = ^(NSString *value) {
          NSLog(@"返回的值===%@",value);

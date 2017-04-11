@@ -7,7 +7,7 @@
 //
 
 #import "ModalVCViewController.h"
-
+#import "NetWorkRequestHelper.h"
 @interface ModalVCViewController ()
 
 @end
@@ -16,9 +16,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [[NetWorkRequestHelper sharedNetWorkRequestHelper] requestNetwork:nil withSuccess:^(id responseObject) {
+        
+        BOOL result = [[responseObject objectForKey:@"result"] boolValue];
+        if (result) {
+            NSArray *Array = [responseObject objectForKey:@"Array"];
+            NSString *String = [responseObject objectForKey:@"NSString"];
+            NSLog(@"responseObject==%@,%@",Array,String);
+        }
+        
+    } andFailure:^(NSDictionary *errorMessage) {
+        if (errorMessage) {
+            NSLog(@"errorMessage===%@",errorMessage);
+        }
+    }];
     // Do any additional setup after loading the view.
 }
+
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     // 传值
     if (_valueBlcok) {
@@ -26,6 +40,8 @@
     }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
