@@ -7,6 +7,7 @@
 //
 
 #import "QinViewController.h"
+#import "ModalVCViewController.h"
 #import "CellItem.h"
 #define MAINLABEL_TAG 1
 #define SECONDLABEL_TAG 2
@@ -19,10 +20,12 @@
 // 定义模型数组
 @property (nonatomic, strong) NSArray *items;
 @property(nonatomic,strong) UITableView *tableView;
+// 计算结果
+@property(nonatomic ,assign) int result;
 @end
 
 @implementation QinViewController
-
+#pragma mark -lazyLoad
 -(UITableView *)tableView
 {
     if (!_tableView) {
@@ -37,23 +40,15 @@
     return _tableView;
 }
 
-
+#pragma mark-lifeCycle
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self.view addSubview:self.tableView];
+//    保存一段代码
+    [self addBlockAction];
 
     
-    CellItem *item1 = [CellItem itemWithName:@"张三"];
-    item1.block = ^{
-        NSLog(@"我是张三");
-    };
-    CellItem *item2 = [CellItem itemWithName:@"李四"];
-    item2.block = ^{
-        NSLog(@"我是李四");
-    };
-    
-    _items = @[item1,item2];
 }
 
 #pragma mark - UITableViewDelegate
@@ -130,7 +125,65 @@
         item.block();
     }
 }
+#pragma mark- PrivateMethod
+-(void)addBlockAction{
+    
+    // 声明weakSelf弱指针
+    __weak typeof(self) weakSelf = self;
+    CellItem *item1 = [CellItem itemWithName:@"参数使用"];
+    item1.block = ^{
+        //    参数使用
+        [weakSelf caculatorBlock];
+        NSLog(@"参数使用");
+    };
+    CellItem *item2 = [CellItem itemWithName:@"返回值,链式编程实现原理"];
+    item2.block = ^{
+        weakSelf.add(1).add(2).add(3);
+        NSLog(@"result = %d",_result);
+        NSLog(@"返回值,链式编程实现原理");
+    };
+    CellItem *ModalAction = [CellItem itemWithName:@"逆向传值"];
+    ModalVCViewController *modalVc = [[ModalVCViewController alloc] init];
+    ModalAction.block = ^{
+        NSLog(@"弹出控制器");
+        [weakSelf presentViewController:modalVc animated:YES completion:nil];
+    };
+    modalVc.valueBlcok = ^(NSString *value) {
+         NSLog(@"返回的值===%@",value);
+    };
+    _items = @[item1,item2,ModalAction];
+}
 
+/**
+  怎么计算由外界决定,什么时候计算由内部决定.
+ */
+-(void)caculatorBlock{
+    // 只要参数中有^,就表示把block充当参数去使用.
+    [self caculator:^(int result){
+        
+        result += 2;
+        result *= 3;
+        
+        return result;
+        
+    }];
+    
+    NSLog(@"%d",_result); // 输出结果:6
+}
+
+// 计算器方法
+- (void)caculator:(int (^)(int))caculatorBlock
+{
+    _result = caculatorBlock(_result);
+}
+// 加法计算器方法
+- (QinViewController * (^)(int))add
+{
+    return ^(int value){
+        _result += value;
+        return self;
+    };
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
