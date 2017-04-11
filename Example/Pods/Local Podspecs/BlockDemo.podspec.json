@@ -1,0 +1,22 @@
+{
+  "name": "BlockDemo",
+  "version": "0.1.0",
+  "summary": "A short description of BlockDemo.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/zhangxinxin/BlockDemo",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "zhangxinxin": "shou1wang@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/zhangxinxin/BlockDemo.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "BlockDemo/Classes/**/*"
+}

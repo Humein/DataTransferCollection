@@ -1,0 +1,6 @@
+framework module BlockDemo {
+  umbrella header "BlockDemo-umbrella.h"
+
+  export *
+  module * { export * }
+}
