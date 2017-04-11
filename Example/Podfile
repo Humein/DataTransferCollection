@@ -6,6 +6,6 @@ target 'BlockDemo_Example' do
   target 'BlockDemo_Tests' do
     inherit! :search_paths
 
-    pod 'FBSnapshotTestCase'
+#    pod 'FBSnapshotTestCase'
   end
 end

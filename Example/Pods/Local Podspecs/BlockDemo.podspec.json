@@ -1,6 +1,6 @@
 {
   "name": "BlockDemo",
-  "version": "0.1.0",
+  "version": "0.0.4",
   "summary": "A short description of BlockDemo.",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/zhangxinxin/BlockDemo",
@@ -12,8 +12,8 @@
     "zhangxinxin": "shou1wang@gmail.com"
   },
   "source": {
-    "git": "https://github.com/zhangxinxin/BlockDemo.git",
-    "tag": "0.1.0"
+    "git": "https://github.com/QinKingHan/BlockDemo.git",
+    "tag": "0.0.4"
   },
   "platforms": {
     "ios": "8.0"
