@@ -8,14 +8,26 @@
 
 #import "ModalVCViewController.h"
 #import "NetWorkRequestHelper.h"
+#import "PlaceholderView.h"
+#define ScreenWidth  [UIScreen mainScreen].bounds.size.width
+#define ScreenHeight  [UIScreen mainScreen].bounds.size.height
+// 弱引用
+#define Weak_Self __weak typeof(self) weakSelf = self
 @interface ModalVCViewController ()
-
+@property(nonatomic,strong) PlaceholderView *holderView;
 @end
 
 @implementation ModalVCViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self loadData];
+
+    // Do any additional setup after loading the view.
+}
+
+-(void)loadData{
+    Weak_Self;
     [[NetWorkRequestHelper sharedNetWorkRequestHelper] requestNetwork:nil withSuccess:^(id responseObject) {
         
         BOOL result = [[responseObject objectForKey:@"result"] boolValue];
@@ -26,11 +38,29 @@
         }
         
     } andFailure:^(NSDictionary *errorMessage) {
+
         if (errorMessage) {
             NSLog(@"errorMessage===%@",errorMessage);
         }
+        
+        
+        if (weakSelf.holderView) {
+            weakSelf.holderView.hidden = NO;
+        }else{
+            weakSelf.holderView = [[PlaceholderView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
+#warning PlaceholderView 弱化
+             PlaceholderView __weak *weakObj =  weakSelf.holderView;
+             weakObj.backgroundColor = [UIColor whiteColor];
+             weakObj.frame = weakSelf.view.frame;
+            [weakSelf.view addSubview:weakObj];
+            [weakObj addButtonAction:^(id sender) {
+                weakObj.hidden = YES;
+                [weakSelf loadData];
+            }];
+            
+        }
     }];
-    // Do any additional setup after loading the view.
+    
 }
 
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
@@ -41,6 +71,9 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+-(void)dealloc{
+    NSLog(@"ModalVCViewController======销毁");
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

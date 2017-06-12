@@ -130,6 +130,7 @@
     
     // 声明weakSelf弱指针
     __weak typeof(self) weakSelf = self;
+
     CellItem *item1 = [CellItem itemWithName:@"参数使用"];
     item1.block = ^{
         //    参数使用
@@ -142,19 +143,33 @@
         NSLog(@"result = %d",_result);
         NSLog(@"返回值,链式编程实现原理");
     };
-    CellItem *ModalAction = [CellItem itemWithName:@"逆向传值"];
-    ModalVCViewController *modalVc = [[ModalVCViewController alloc] init];
-    ModalAction.block = ^{
+    
+    CellItem *item3 = [CellItem itemWithName:@"逆向传值"];
+
+    item3.block = ^{
         NSLog(@"弹出控制器");
-        [weakSelf presentViewController:modalVc animated:YES completion:nil];
-        
+       ModalVCViewController *modalVc = [[ModalVCViewController alloc] init];
+#warning ModalVCViewController 弱化
+       ModalVCViewController __weak *weakObj = modalVc;
+       [weakSelf presentViewController:modalVc animated:YES completion:nil];
+       weakObj.valueBlcok = ^(NSString *value) {
+            NSLog(@"返回的值===%@",value);
+        };
+//        [weakSelf presentVC];
     };
-    modalVc.valueBlcok = ^(NSString *value) {
-         NSLog(@"返回的值===%@",value);
-    };
-    _items = @[item1,item2,ModalAction];
+    
+    
+
+    _items = @[item1,item2,item3];
 }
 
+-(void)presentVC{
+        ModalVCViewController *modalVc = [[ModalVCViewController alloc] init];
+       [self presentViewController:modalVc animated:YES completion:nil];
+       modalVc.valueBlcok = ^(NSString *value) {
+        NSLog(@"返回的值===%@",value);
+     };
+}
 /**
   怎么计算由外界决定,什么时候计算由内部决定.
  */
@@ -189,6 +204,9 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+-(void)dealloc{
+    NSLog(@"QinViewController======销毁");
 }
 
 @end
