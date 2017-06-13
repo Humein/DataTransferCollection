@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PlaceholderView.h"
 #import "Singleton.h"
 /**
  *  成功。
@@ -20,6 +21,8 @@ typedef void(^Succsess)(id responseObject);
  */
 typedef void(^Failure)(NSDictionary *errorMessage);
 
+typedef void (^reloadClickBlock) (id sender);
+
 @interface NetWorkRequestHelper : NSObject
 // 回调块代码
 @property (nonatomic, copy) Succsess      succsessBlock;
@@ -28,4 +31,5 @@ singleton_interface(NetWorkRequestHelper)
 - (void)requestNetwork:(NSDictionary *)Parameter
            withSuccess:(Succsess)succsess
             andFailure:(Failure)failed;
+                                                                                                          
 @end

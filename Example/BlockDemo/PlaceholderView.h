@@ -10,6 +10,9 @@
 typedef void (^reloadClickBlock) (id sender);
 @interface PlaceholderView : UIView
 
-- (void)addButtonAction:(reloadClickBlock)block;
+-(instancetype)initWithFrame:(CGRect)frame andTitle:(NSString *)title withCallBack:(reloadClickBlock)callBack;
 
+
+
+- (void)addButtonAction:(reloadClickBlock)block;
 @end

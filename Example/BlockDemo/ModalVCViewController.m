@@ -15,12 +15,14 @@
 #define Weak_Self __weak typeof(self) weakSelf = self
 @interface ModalVCViewController ()
 @property(nonatomic,strong) PlaceholderView *holderView;
+@property(nonatomic,assign) BOOL isRreash;
 @end
 
 @implementation ModalVCViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.isRreash = YES;
     [self loadData];
 
     // Do any additional setup after loading the view.
@@ -28,6 +30,7 @@
 
 -(void)loadData{
     Weak_Self;
+
     [[NetWorkRequestHelper sharedNetWorkRequestHelper] requestNetwork:nil withSuccess:^(id responseObject) {
         
         BOOL result = [[responseObject objectForKey:@"result"] boolValue];
@@ -43,22 +46,45 @@
             NSLog(@"errorMessage===%@",errorMessage);
         }
         
-        
+      // 添加占位
+      
+        if (!weakSelf.isRreash) {
+            return;
+        }
         if (weakSelf.holderView) {
             weakSelf.holderView.hidden = NO;
         }else{
+            
+ /*
             weakSelf.holderView = [[PlaceholderView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
 #warning PlaceholderView 弱化
              PlaceholderView __weak *weakObj =  weakSelf.holderView;
              weakObj.backgroundColor = [UIColor whiteColor];
              weakObj.frame = weakSelf.view.frame;
-            [weakSelf.view addSubview:weakObj];
-            [weakObj addButtonAction:^(id sender) {
+             [weakSelf.view addSubview:weakObj];
+             [weakObj addButtonAction:^(id sender) {
                 weakObj.hidden = YES;
+                weakSelf.isRreash = NO;
                 [weakSelf loadData];
             }];
             
-        }
+  
+        
+    */
+      
+      weakSelf.holderView = [[PlaceholderView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight) andTitle:@"网络不畅通" withCallBack:^(id sender) {
+          weakSelf.holderView.hidden = YES;
+          weakSelf.isRreash = NO;
+          [weakSelf loadData];
+      }];
+      
+      
+            
+      [weakSelf.view addSubview:weakSelf.holderView];
+            
+        
+        
+  }
     }];
     
 }
