@@ -15,7 +15,9 @@
 @end
 @implementation PlaceholderView
 -(instancetype)initWithFrame:(CGRect)frame andTitle:(NSString *)title withCallBack:(reloadClickBlock)callBack{
-    if(self=[super initWithFrame:frame]){
+
+
+      if(self=[super initWithFrame:frame]){
         
         self.block = callBack;
         

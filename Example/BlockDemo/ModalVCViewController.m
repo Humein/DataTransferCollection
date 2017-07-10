@@ -51,6 +51,8 @@
         if (!weakSelf.isRreash) {
             return;
         }
+        
+        
         if (weakSelf.holderView) {
             weakSelf.holderView.hidden = NO;
         }else{
@@ -77,9 +79,6 @@
           weakSelf.isRreash = NO;
           [weakSelf loadData];
       }];
-      
-      
-            
       [weakSelf.view addSubview:weakSelf.holderView];
             
         

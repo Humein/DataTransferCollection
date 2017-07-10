@@ -10,6 +10,6 @@
 
 @interface ModalVCViewController : UIViewController
 // 在要modal的控制器B声明一个带参数block属性
-@property (nonatomic ,strong) void(^valueBlcok)(NSString *value);
+@property (nonatomic ,copy) void(^valueBlcok)(NSString *value);
 
 @end
