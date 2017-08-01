@@ -13,6 +13,6 @@ typedef void (^reloadClickBlock) (id sender);
 -(instancetype)initWithFrame:(CGRect)frame andTitle:(NSString *)title withCallBack:(reloadClickBlock)callBack;
 
 
-
-- (void)addButtonAction:(reloadClickBlock)block;
+//废弃
+//- (void)addButtonAction:(reloadClickBlock)block;
 @end

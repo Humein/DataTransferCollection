@@ -60,6 +60,15 @@
 
     return self;
 }
+
+- (void)buttonAction {
+    if (self.block) {
+        self.block(self);
+    }
+}
+
+
+// 废弃
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
@@ -107,11 +116,7 @@
 - (void)addButtonAction:(reloadClickBlock)block {
     self.block = block;
 }
-- (void)buttonAction {
-    if (self.block) {
-        self.block(self);
-    }
-}
+
 
 /*
 // Only override drawRect: if you perform custom drawing.
