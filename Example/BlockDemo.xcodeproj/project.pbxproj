@@ -119,6 +119,13 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		33AC5E072087815600C509CA /* KVO:KVC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "KVO:KVC";
+			sourceTree = "<group>";
+		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +163,7 @@
 		6003F593195388D20070C39A /* Example for BlockDemo */ = {
 			isa = PBXGroup;
 			children = (
+				33AC5E072087815600C509CA /* KVO:KVC */,
 				6003F59C195388D20070C39A /* QinAppDelegate.h */,
 				6003F59D195388D20070C39A /* QinAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
