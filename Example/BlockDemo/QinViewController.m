@@ -9,6 +9,7 @@
 #import "QinViewController.h"
 #import "ModalVCViewController.h"
 #import "CellItem.h"
+#import "QinKVCDemoViewController.h"
 #define MAINLABEL_TAG 1
 #define SECONDLABEL_TAG 2
 #define PHOTO_TAG 3
@@ -107,9 +108,9 @@
         secondLabel = (UILabel *)[cell.contentView viewWithTag:SECONDLABEL_TAG];
         photo = (UIImageView *)[cell.contentView viewWithTag:PHOTO_TAG];
     }
-    
+    CellItem *item = self.items[indexPath.row];
     mainLabel.text = [NSString stringWithFormat:@"Title_%ld", (long)indexPath.row];
-    secondLabel.text = [NSString stringWithFormat:@"Description_%ld", (long)indexPath.row];
+    secondLabel.text = [NSString stringWithFormat:@"Description_%@", item.name];
     NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"jpg"];
     photo.image = [UIImage imageNamed:imagePath];
     
@@ -157,10 +158,17 @@
         };
 //        [weakSelf presentVC];
     };
-    
+    CellItem *item4 = [CellItem itemWithName:@"KVC"];
+
+    item4.block = ^{
+        QinKVCDemoViewController *modalVc = [[QinKVCDemoViewController alloc] init];
+        QinKVCDemoViewController __weak *weakObj = modalVc;
+        [weakSelf presentViewController:modalVc animated:YES completion:nil];
+
+    };
     
 
-    _items = @[item1,item2,item3];
+    _items = @[item1,item2,item3,item4];
 }
 
 -(void)presentVC{

@@ -10,6 +10,7 @@
 		339E093C1E9C709900B0768F /* CellItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 339E093B1E9C709900B0768F /* CellItem.m */; };
 		339E093F1E9C816500B0768F /* ModalVCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 339E093E1E9C816500B0768F /* ModalVCViewController.m */; };
 		339E09421E9CA85800B0768F /* NetWorkRequestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 339E09411E9CA85800B0768F /* NetWorkRequestHelper.m */; };
+		33AC5E0D2089912700C509CA /* QinKVCDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33AC5E0C2089912700C509CA /* QinKVCDemoViewController.m */; };
 		33D8A63D1EEE7B5100A77FE9 /* PlaceholderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D8A63C1EEE7B5000A77FE9 /* PlaceholderView.m */; };
 		48858F78AC1EC49484BE5B4D /* Pods_BlockDemo_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA344BA0D1166EBC839D6666 /* Pods_BlockDemo_Example.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -52,6 +53,8 @@
 		339E09401E9CA85800B0768F /* NetWorkRequestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkRequestHelper.h; sourceTree = "<group>"; };
 		339E09411E9CA85800B0768F /* NetWorkRequestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkRequestHelper.m; sourceTree = "<group>"; };
 		339E09431E9CAA1A00B0768F /* Singleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		33AC5E0B2089912700C509CA /* QinKVCDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QinKVCDemoViewController.h; sourceTree = "<group>"; };
+		33AC5E0C2089912700C509CA /* QinKVCDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QinKVCDemoViewController.m; sourceTree = "<group>"; };
 		33D8A63B1EEE7B5000A77FE9 /* PlaceholderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceholderView.h; sourceTree = "<group>"; };
 		33D8A63C1EEE7B5000A77FE9 /* PlaceholderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceholderView.m; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* BlockDemo_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlockDemo_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,6 +125,8 @@
 		33AC5E072087815600C509CA /* KVO:KVC */ = {
 			isa = PBXGroup;
 			children = (
+				33AC5E0B2089912700C509CA /* QinKVCDemoViewController.h */,
+				33AC5E0C2089912700C509CA /* QinKVCDemoViewController.m */,
 			);
 			path = "KVO:KVC";
 			sourceTree = "<group>";
@@ -433,6 +438,7 @@
 				6003F59E195388D20070C39A /* QinAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* QinViewController.m in Sources */,
 				339E09421E9CA85800B0768F /* NetWorkRequestHelper.m in Sources */,
+				33AC5E0D2089912700C509CA /* QinKVCDemoViewController.m in Sources */,
 				33D8A63D1EEE7B5100A77FE9 /* PlaceholderView.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
